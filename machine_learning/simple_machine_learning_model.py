@@ -21,7 +21,6 @@ y_pred = model.predict(X_test)
 
 # Evaluate the model
 mse = mean_squared_error(y_test, y_pred)
-print(f"Decision Tree Regressor MSE: {mse:.2f}")
 
 
 def predict(data):
