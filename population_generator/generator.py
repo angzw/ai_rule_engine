@@ -7,7 +7,7 @@ import pandas as pd
 fake = faker.Faker()
 
 # Number of records to generate
-num_records = 20
+num_records = 500000
 
 # Generate random data
 data = {
@@ -30,8 +30,10 @@ for _ in range(num_records):
         else ""
     )
     data["identity_number"].append(fake.ssn())
-    data["gender"].append(random.choice(["M", "F"]))
-    data["nationality"].append(fake.country())
+    data["gender"].append(random.choice(["MALE", "FEMALE"]))
+    data["nationality"].append(
+        random.choice(["SINGAPORE_CITIZEN", "FOREIGNER", "DUAL_CITIZEN"])
+    )
 
 # Create a DataFrame
 df = pd.DataFrame(data)

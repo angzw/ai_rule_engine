@@ -10,17 +10,6 @@ data = pd.read_csv("../data/population_data.csv")
 # Apply the age rule
 data = age_rule(data)
 data = living_status_rule(data)
-print(
-    data[
-        [
-            "name",
-            "date_of_birth",
-            "death_date",
-            "age_rule_pass",
-            "living_status_rule_pass",
-        ]
-    ]
-)
 
 data["grant_amount"] = predict(data[["age_rule_pass", "living_status_rule_pass"]])
 data["grant_amount"] = data["grant_amount"].apply(lambda x: "{:.2f}".format(x))
